@@ -1,0 +1,5 @@
+docs
+logs
+.pabotsuitenames
+__pycache__
+.DS_Store

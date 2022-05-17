@@ -1,0 +1,8 @@
+bcrypt==3.2.0
+Faker==13.3.4
+requests==2.27.1
+robotframework==5.0
+robotframework-browser==12.2.0
+robotframework-databaselibrary==1.2.4
+robotframework-pabot==2.5.3
+robotframework-requests==0.9.2
