@@ -39,5 +39,5 @@ jobs:
       with:
         name: API Test Result
         path: backend/logs/xunit.xml
-        reporter: java-junit && all
+        reporter: java-junit
         
