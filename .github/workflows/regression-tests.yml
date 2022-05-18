@@ -40,4 +40,3 @@ jobs:
         name: API Test Result
         path: backend/logs/xunit.xml
         reporter: java-junit
-        
