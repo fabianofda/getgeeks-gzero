@@ -41,48 +41,48 @@ jobs:
         path: backend/logs/xunit.xml
         reporter: java-junit
 
-  web_tests:
-    needs: api_tests
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ["3.9"]
+#   web_tests:
+#     needs: api_tests
+#     runs-on: ubuntu-latest
+#     strategy:
+#       fail-fast: false
+#       matrix:
+#         python-version: ["3.9"]
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Set up Node 14
-      run: |
-        curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-        sudo apt-get install -y nodejs
-    - name: Preparation
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y xvfb ca-certificates net-tools netcat gnupg ffmpeg libgtk-3-0 libgdk-pixbuf2.0-dev libxcomposite-dev libdbus-glib-1-2 libatk-bridge2.0-0 wget libgbm1 libnss3 libxss1 libasound2
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install build
-        pip install -r requirements.txt
-    - name: Run Browser Init
-      run: rfbrowser init
-    - name: Run Web Tests
-      run: | 
-        chmod +x ./frontend/run.sh
-        cd frontend/ && ./run.sh
-    - name: Upload web test results
-      uses: actions/upload-artifact@v2.3.1
-      if: always()
-      with:
-        name: web-reports
-        path: frontend/logs
-    - name: Test Reporter
-      uses: dorny/test-reporter@v1.5.0
-      with:
-        name: Web Test Result
-        path: frontend/logs/xunit.xml
-        reporter: java-junit
+#     steps:
+#     - uses: actions/checkout@v2
+#     - name: Set up Python ${{ matrix.python-version }}
+#       uses: actions/setup-python@v2
+#       with:
+#         python-version: ${{ matrix.python-version }}
+#     - name: Set up Node 14
+#       run: |
+#         curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+#         sudo apt-get install -y nodejs
+#     - name: Preparation
+#       run: |
+#         sudo apt-get update
+#         sudo apt-get install -y xvfb ca-certificates net-tools netcat gnupg ffmpeg libgtk-3-0 libgdk-pixbuf2.0-dev libxcomposite-dev libdbus-glib-1-2 libatk-bridge2.0-0 wget libgbm1 libnss3 libxss1 libasound2
+#     - name: Install dependencies
+#       run: |
+#         python -m pip install --upgrade pip
+#         pip install build
+#         pip install -r requirements.txt
+#     - name: Run Browser Init
+#       run: rfbrowser init
+#     - name: Run Web Tests
+#       run: | 
+#         chmod +x ./frontend/run.sh
+#         cd frontend/ && ./run.sh
+#     - name: Upload web test results
+#       uses: actions/upload-artifact@v2.3.1
+#       if: always()
+#       with:
+#         name: web-reports
+#         path: frontend/logs
+#     - name: Test Reporter
+#       uses: dorny/test-reporter@v1.5.0
+#       with:
+#         name: Web Test Result
+#         path: frontend/logs/xunit.xml
+#         reporter: java-junit
