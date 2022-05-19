@@ -35,15 +35,7 @@ jobs:
         name: api-reports
         path: backend/logs 
     - name: Test Reporter
-      uses: dorny/test-reporter@v1
-      if: always()
+      uses: dorny/test-reporter@v1.5.0
       with:
         name: api-reports
-        path: backend/logs/'*.xml'
-        reporter: java-junit
-        fail-on-error: true
-        
-        
-      
-
-        
+        path: backend/logs/xunit.xml
