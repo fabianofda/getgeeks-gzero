@@ -35,12 +35,11 @@ jobs:
         name: api-reports
         path: backend/logs 
         
-    - name: Test Reporting
-      uses: phoenix-actions/test-reporting@v6
+    - name: junito-xml
+      uses: chrismaille/junito@v1.1.3
       with:
-        name: API tests result
+        name: xunit-results
         path: backend/logs/xunit.xml
-        reporter: java-junit
         
 
 
