@@ -28,14 +28,9 @@ jobs:
       run: | 
         chmod +x ./backend/run.sh
         cd backend/ && ./run.sh
-    - name: Upload api tests results
-      uses: actions/upload-artifact@v2.3.1
-      if: always()
-      with:
-        name: api-reports
-        path: backend/logs 
     - name: Test Reporter
       uses: dorny/test-reporter@v1.5.0
       with:
         name: api-reports
         path: backend/logs/xunit.xml
+        reporter: java-junit
