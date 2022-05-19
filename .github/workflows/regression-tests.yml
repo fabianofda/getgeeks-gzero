@@ -34,11 +34,10 @@ jobs:
       with:
         name: api-reports
         path: backend/logs 
-    - name: Test Reporter
-      uses: dorny/test-reporter@v1.5.0
+    - name: Publish Test Report
+      uses: mikepenz/action-junit-report@v3
+      if: always()
       with:
-        name: API Test Result
-        path: backend/logs/xunit.xml
-        reporter: java-junit
+          report_paths: backend/logs/xunit.xml
 
         
