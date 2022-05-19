@@ -39,9 +39,9 @@ jobs:
       if: always()
       with:
         name: api-reports
-        path: backend/logs/xunit.xml
+        path: backend/logs/
         reporter: java-junit
-        fail-on-error: true
+        fail-on-error: false
         
         
       
