@@ -34,13 +34,13 @@ jobs:
       with:
         name: api-reports
         path: backend/logs
-    - name: Test Reporter
-      uses: dorny/test-reporter@v1.5.0
-      if: always()
-      with:
-        name: API Test Result
-        path: backend/logs/xunit.xml
-        reporter: java-junit
+#     - name: Test Reporter
+#       uses: dorny/test-reporter@v1.5.0
+#       if: always()
+#       with:
+#         name: API Test Result
+#         path: backend/logs/xunit.xml
+#         reporter: java-junit
 
   web_tests:
     permissions: write-all
@@ -82,10 +82,10 @@ jobs:
       with:
         name: web-reports
         path: frontend/logs
-    - name: Test Reporter
-      uses: dorny/test-reporter@v1.5.0
-      if: always()
-      with:
-        name: Web Test Result
-        path: frontend/logs/xunit.xml
-        reporter: java-junit
+#     - name: Test Reporter
+#       uses: dorny/test-reporter@v1.5.0
+#       if: always()
+#       with:
+#         name: Web Test Result
+#         path: frontend/logs/xunit.xml
+#         reporter: java-junit
