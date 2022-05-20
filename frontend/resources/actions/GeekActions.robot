@@ -57,6 +57,6 @@ Start Session For Attempt Be a Geek
     Go To Geek From
 
 Reset Geek Form
-    #Execute Javascript    document.getElementsByClassName("be-geek-form")[0].reset();
+    Execute Javascript    document.getElementsByClassName("be-geek-form")[0].reset();
 
-    Evaluate JavaScript    ${None}    () => document.getElementsByClassName("be-geek-form")[0].reset();
+    #Evaluate JavaScript    ${None}    () => document.getElementsByClassName("be-geek-form")[0].reset();
