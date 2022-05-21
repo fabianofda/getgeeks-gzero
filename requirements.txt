@@ -2,7 +2,7 @@ bcrypt==3.2.0
 Faker==13.3.4
 psycopg2==2.9.3
 requests==2.26.0
-robotframework==5.0
+robotframework==4.1.1
 robotframework-browser==8.0.2
 robotframework-databaselibrary==1.2.4
 robotframework-pabot==2.5.3
