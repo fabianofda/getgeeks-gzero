@@ -11,7 +11,10 @@ def users_to_insert_db():
     return [
         factory_user('login'),
         factory_user('be_geek'),
-        factory_user('attempt_be_geek')
+        factory_user('attempt_be_geek'),
+        factory_user('search_alien'),
+        factory_user('search_common'),
+        factory_user('searcher')
     ]
 
 def factory_user(target):
@@ -59,6 +62,40 @@ def factory_user(target):
                 'work': 'Remoto',
                 'cost': '100'
             }
-        }              
+        },
+        'searcher': {
+            'name': 'Johnny',
+            'lastname': 'Lawrence',
+            'email': 'johnny@cobrakay.com',
+            'password': 'pwd123'
+        },
+        'search_alien': {
+            'name': 'Dok',
+            'lastname': 'Ock',
+            'email': 'dok@oscorp.com',
+            'password': 'pwd123',
+            'geek_profile': {
+                'whatsapp': '21999999991',
+                'desc': 'Manutenção geral de impressoras',
+                'printer_repair': 'Sim',
+                'work': 'Remoto',
+                'cost': '250'
+            }
+        },
+        'search_common': {
+            'name': 'Peter',
+            'lastname': 'Parker',
+            'email': 'parker@oscorp.com',
+            'password': 'pwd123'
+        }
+
+
+
+
+
+
+
+
+
     }
     return  data[target]

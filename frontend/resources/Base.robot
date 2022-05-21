@@ -14,6 +14,7 @@ Resource    actions/SignupActions.robot
 
 Resource    Database.robot
 Resource    Helpers.robot
+Resource    Services.robot
 
 *Variables*
 ${BASE_URL}    https://getgeeks-fabiano.herokuapp.com
