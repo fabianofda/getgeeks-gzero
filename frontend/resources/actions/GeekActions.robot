@@ -2,6 +2,46 @@
 Documentation    Geek Actions
 
 *Keywords*
+Go To Geeks
+    Click    css=a[href="/geeks"] >> text=Geeks
+
+    Wait For Elements State    css=.title strong >> text=Estes são os Geeks disponíveis. 
+    ...                        visible                                                       10
+
+Fill Search Form
+    [Arguments]    ${option}    ${text}
+
+    IF                   '${option}'
+    Select Options By    id=printer_repair    value    ${option} 
+    END
+
+    Fill Text    id=desc    ${text}
+
+Submit Search Form
+    Click    css=button[type="submit"] >> text=Buscar
+
+Geek Should Be Found
+    [Arguments]    ${geek}
+
+    ${nome}    Set Variable    ${geek}[name] ${geek}[lastname]
+
+    ${target_geek}    Get Element    xpath=//strong[contains(text(), "${nome}")]/../../..
+
+    ${work}    Convert To Lower Case    ${geek}[geek_profile][work] 
+
+    Get Text    ${target_geek}    contains    Atendimento ${work} 
+    Get Text    ${target_geek}    contains    ${geek}[geek_profile][desc]
+    Get Text    ${target_geek}    contains    ${geek}[geek_profile][cost]
+
+    Set Suite Variable    ${target_geek}
+
+Alien Icon Should Be Visible
+    Get Text    ${target_geek}    contains    👽
+
+Geek Not Fould
+    Wait For Elements State    css=.search-not-found p >> text=Não encontramos Geeks com o(s) termo(s) informado na busca! 
+    ...                        visible                                     10    
+
 Go To Geek From
     Click    css=a[href="/be-geek"] >> text=Seja um Geek
 
